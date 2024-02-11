@@ -3,42 +3,65 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Portfolio</title>
+    <title>Professional Portfolio</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
     <header>
-        <nav>
-            <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#portfolio">Portfolio</a></li>
-            </ul>
-        </nav>
+        <div class="container">
+            <h1>My Portfolio</h1>
+            <nav>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#portfolio">Portfolio</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
     </header>
 
-    <section id="home">
-        <h1>Welcome to My Portfolio</h1>
-        <p>This is the home section.</p>
+    <section id="home" class="blue-bg">
+        <div class="container">
+            <h2>Welcome to My Portfolio</h2>
+            <p>This is the home section.</p>
+        </div>
     </section>
 
     <section id="about">
-        <h2>About Me</h2>
-        <p>This is the about section. Here you can write about yourself and your skills.</p>
+        <div class="container">
+            <h2>About Me</h2>
+            <p>This is the about section. Here you can write about yourself and your skills.</p>
+        </div>
     </section>
 
-    <section id="portfolio">
-        <h2>Portfolio</h2>
-        <div class="portfolio-item">
-            <img src="portfolio-item-1.jpg" alt="Portfolio Item 1">
-            <h3>Project 1</h3>
-            <p>Description of project 1.</p>
+    <section id="portfolio" class="blue-bg">
+        <div class="container">
+            <h2>Portfolio</h2>
+            <div class="portfolio-item">
+                <img src="portfolio-item-1.jpg" alt="Portfolio Item 1">
+                <h3>Project 1</h3>
+                <p>Description of project 1.</p>
+            </div>
+            <div class="portfolio-item">
+                <img src="portfolio-item-2.jpg" alt="Portfolio Item 2">
+                <h3>Project 2</h3>
+                <p>Description of project 2.</p>
+            </div>
         </div>
-        <div class="portfolio-item">
-            <img src="portfolio-item-2.jpg" alt="Portfolio Item 2">
-            <h3>Project 2</h3>
-            <p>Description of project 2.</p>
+    </section>
+
+    <section id="contact">
+        <div class="container">
+            <h2>Contact Me</h2>
+            <p>You can contact me via email at example@example.com or through the form below.</p>
+            <form>
+                <input type="text" placeholder="Your Name">
+                <input type="email" placeholder="Your Email">
+                <textarea placeholder="Your Message"></textarea>
+                <button type="submit">Send Message</button>
+            </form>
         </div>
     </section>
 
@@ -46,6 +69,7 @@
         <p>&copy; 2024 My Portfolio</p>
     </footer>
 
+    <script src="script.js"></script>
 </body>
 </html>
 /* styles.css */
@@ -55,10 +79,19 @@ body {
     padding: 0;
 }
 
+.container {
+    width: 80%;
+    margin: auto;
+}
+
 header {
-    background-color: #333;
+    background-color: #0e4e92; /* Dark Blue */
     color: #fff;
-    padding: 10px 0;
+    padding: 20px 0;
+}
+
+header h1 {
+    margin: 0;
 }
 
 nav ul {
@@ -78,12 +111,51 @@ nav ul li a {
 }
 
 section {
-    padding: 20px;
+    padding: 50px 0;
+}
+
+.blue-bg {
+    background-color: #0e4e92; /* Dark Blue */
+    color: #fff;
+}
+
+.portfolio-item {
+    margin-bottom: 30px;
 }
 
 footer {
-    background-color: #333;
+    background-color: #0e4e92; /* Dark Blue */
     color: #fff;
     text-align: center;
-    padding: 10px 0;
+    padding: 20px 0;
 }
+
+form input,
+form textarea,
+form button {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+}
+
+form button {
+    background-color: #0e4e92; /* Dark Blue */
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+
+form button:hover {
+    background-color: #0b3d71; /* Darker Blue */
+}
+// Smooth scrolling
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+            behavior: 'smooth'
+        });
+    });
+});
